@@ -1,0 +1,52 @@
+# Generated dumps and Drive backup copies
+PROJECT_DUMP/
+**/PROJECT_DUMP/
+pv_fault_detection/src_share/
+pv_fault_detection/src/*-2026*Z-*/
+
+# Archives, datasets, checkpoints, and databases
+*.zip
+*.pt
+*.pth
+*.parquet
+*.db
+data/raw/
+data/processed/
+data/synthetic/
+**/data/raw/
+**/data/processed/
+**/data/synthetic/
+checkpoints/
+**/checkpoints/
+logs/
+**/logs/
+
+# Results: keep headline metrics/plots/tables, exclude raw predictions/checkpoints
+results/**/*.csv
+results/**/*.pt
+results/**/*.pth
+
+# Python / Packaging / Tests
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+
+# Virtual environments & secrets
+.venv/
+venv/
+env/
+.env
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

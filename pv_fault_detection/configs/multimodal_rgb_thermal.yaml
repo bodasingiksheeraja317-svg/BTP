@@ -1,0 +1,16 @@
+# configs/multimodal_rgb_thermal.yaml
+# Ablation matrix row 4: RGB + Thermal (no electrical), random split.
+# Isolates the image-fusion contribution.
+
+experiment_name: "multimodal_rgb_thermal"
+
+model:
+  modalities: [rgb, thermal]
+  fusion_type: "cross_attention"
+  dg_method: "none"
+
+evaluation:
+  protocol: "random_split"
+
+synthetic:
+  ratio: 0.0

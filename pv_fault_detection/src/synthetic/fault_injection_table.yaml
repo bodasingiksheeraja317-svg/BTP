@@ -1,0 +1,58 @@
+# src/synthetic/fault_injection_table.yaml
+# Per-fault parameter perturbations for pvlib single/two-diode simulation.
+# Spec Section 11.1 — values are ASSUMPTION (literature-typical Si-module ranges).
+# TO VERIFY: Check against MATLAB/Simulink 35k-curve methodology paper cited in spec.
+#
+# Format per fault class:
+#   base_params: single-diode model parameters at nominal conditions
+#   perturbations: parameter modifications to inject the fault
+#   description: physical justification
+
+fault_classes:
+
+  Healthy:
+    description: "Nominal healthy module, no perturbation"
+    perturbations: {}
+
+  Hotspot:
+    description: "Localized thermal heating in one cell string due to mismatch or shading"
+    perturbations:
+      R_s: {multiplier: 2.0, description: "Elevated series resistance in affected cell"}  # ASSUMPTION
+      I_L: {multiplier: 0.85, description: "Reduced photocurrent in shadowed/mismatched cell"}  # ASSUMPTION
+
+  "Open/Short-circuit":
+    description: "Open or short circuit in module bypass diode or interconnect"
+    perturbations:
+      R_s: {multiplier: 6.0, description: "High series resistance proxies open/short cell interconnect"}
+      I_L: {multiplier: 0.3, description: "Severe current collapse under open/short fault"}
+      R_sh: {multiplier: 0.05, description: "Low shunt resistance under short-circuit"}
+
+  "Shading/Obstruction":
+    description: "Partial shading reduces photocurrent in affected cell strings"
+    perturbations:
+      I_L: {multiplier: 0.5, description: "Reduced photocurrent from partial shading"}
+      R_sh: {multiplier: 0.4, description: "Reduced shunt resistance due to mismatch currents"}
+
+  Soiling:
+    description: "Dust/dirt on module surface reduces transmitted irradiance"
+    perturbations:
+      I_L: {multiplier: 0.9, description: "Slight photocurrent reduction from soiling"}
+
+  "Structural (visual)":
+    description: "Physical damage (crack, delamination) affecting module performance"
+    perturbations:
+      R_s: {multiplier: 1.8, description: "Increased series resistance from cracked contacts"}
+      R_sh: {multiplier: 0.6, description: "Reduced shunt resistance from microcracks"}
+
+  "Electrical/Diode fault":
+    description: "Bypass diode failure: short (bypass always on) or open (bypass disabled)"
+    perturbations:
+      R_s: {multiplier: 3.0, description: "Elevated series resistance in damaged diode"}
+      R_sh: {multiplier: 0.1, description: "Degraded diode shunt pathway"}
+
+base_params_stc:
+  I_L_ref: 8.5    # A  (photocurrent at STC) — ASSUMPTION
+  I_o_ref: 1.0e-10 # A  (diode saturation current) — ASSUMPTION
+  R_s: 0.4         # Ohm (series resistance) — ASSUMPTION
+  R_sh_ref: 200.0  # Ohm (shunt resistance) — ASSUMPTION
+  a_ref: 1.6       # (ideality factor * n_s * V_T) — ASSUMPTION

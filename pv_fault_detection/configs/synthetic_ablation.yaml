@@ -1,0 +1,26 @@
+# configs/synthetic_ablation.yaml
+# Ablation matrix row 7: Synthetic data ratio sweep.
+# Best architecture from rows 5/6 (full trimodal, cross_attention), random split.
+# Run via CLI override for each ratio:
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=0.0
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=0.1
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=0.25
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=0.5
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=1.0
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=unlimited
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=pretrain_finetune
+#   python -m src.experiments.run --config configs/synthetic_ablation.yaml --override synthetic.ratio=domain_randomized
+# Answers RQ3 in-domain half; Level 4.
+
+experiment_name: "synthetic_ablation"
+
+model:
+  modalities: [rgb, thermal, electrical]
+  fusion_type: "cross_attention"
+  dg_method: "none"
+
+evaluation:
+  protocol: "random_split"
+
+synthetic:
+  ratio: 0.0  # default; override via --override synthetic.ratio=<value>

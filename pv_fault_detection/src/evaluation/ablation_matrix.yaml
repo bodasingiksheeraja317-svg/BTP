@@ -1,0 +1,93 @@
+# src/evaluation/ablation_matrix.yaml
+# Programmatic definition of all 9 ablation-matrix rows (spec Section 15).
+# This is the machine-readable source of truth.
+# Human-readable summary is in the spec Section 15 table.
+
+rows:
+  - id: 1
+    name: "rgb_only"
+    description: "RGB-only baseline, in-domain random split"
+    config: "configs/baseline_rgb.yaml"
+    overrides: []
+    protocol: "random_split"
+    answers: ["RQ1 floor", "RQ2 floor"]
+
+  - id: 2
+    name: "thermal_only"
+    description: "Thermal-only baseline, in-domain random split"
+    config: "configs/baseline_thermal.yaml"
+    overrides: []
+    protocol: "random_split"
+    answers: ["RQ1 floor", "RQ2 floor"]
+
+  - id: 3
+    name: "electrical_only"
+    description: "Electrical-only baseline, in-domain random split"
+    config: "configs/baseline_electrical.yaml"
+    overrides: []
+    protocol: "random_split"
+    answers: ["RQ1 floor", "RQ2 floor"]
+
+  - id: 4
+    name: "rgb_thermal_fusion"
+    description: "RGB + Thermal bimodal, random split"
+    config: "configs/multimodal_rgb_thermal.yaml"
+    overrides: []
+    protocol: "random_split"
+    answers: ["RQ1 isolation"]
+
+  - id: 5
+    name: "trimodal_full"
+    description: "Full trimodal (RGB+Thermal+Electrical), random split"
+    config: "configs/multimodal_full.yaml"
+    overrides: []
+    protocol: "random_split"
+    answers: ["RQ1 in-domain"]
+
+  - id: 6
+    name: "fusion_mechanism_comparison"
+    description: "Late fusion vs cross-attention, fixed trimodal, random split"
+    config: "configs/fusion_late_vs_crossattn.yaml"
+    overrides_sweep:
+      - ["model.fusion_type=cross_attention"]
+      - ["model.fusion_type=late"]
+    protocol: "random_split"
+    answers: ["fusion mechanism"]
+
+  - id: 7
+    name: "synthetic_ratio_sweep"
+    description: "Real-only vs Real+Synthetic at multiple ratios, best arch from row 5/6"
+    config: "configs/synthetic_ablation.yaml"
+    overrides_sweep:
+      - ["synthetic.ratio=0.0"]
+      - ["synthetic.ratio=0.1"]
+      - ["synthetic.ratio=0.25"]
+      - ["synthetic.ratio=0.5"]
+      - ["synthetic.ratio=1.0"]
+      - ["synthetic.ratio=unlimited"]
+      - ["synthetic.ratio=pretrain_finetune"]
+      - ["synthetic.ratio=domain_randomized"]
+    protocol: "random_split"
+    answers: ["RQ3 in-domain"]
+
+  - id: 8
+    name: "dg_method_comparison"
+    description: "ERM vs CORAL vs Adversarial-DG vs domain-norm, LODO"
+    config: "configs/domain_generalization.yaml"
+    overrides_sweep:
+      - ["model.dg_method=none"]
+      - ["model.dg_method=coral"]
+      - ["model.dg_method=adversarial"]
+      - ["model.dg_method=domain_norm"]
+    protocol: "lodo"
+    answers: ["RQ4"]
+
+  - id: 9
+    name: "indomain_vs_lodo"
+    description: "In-domain (random split) vs LODO cross-site — central paper claim"
+    config: "configs/lodo_final.yaml"
+    overrides_sweep:
+      - ["evaluation.protocol=random_split"]
+      - ["evaluation.protocol=lodo"]
+    protocol: "both"
+    answers: ["RQ2 central"]

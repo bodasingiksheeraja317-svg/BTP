@@ -1,0 +1,72 @@
+[
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T135617",
+    "timestamp": "2026-08-30T13:56:26.795741+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "7f7a88d3410c",
+    "config_path": "configs/baseline_thermal.yaml"
+  },
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T145517",
+    "timestamp": "2026-08-30T14:55:25.436958+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "1afbd16cd407",
+    "config_path": "configs/baseline_thermal.yaml"
+  },
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T145644",
+    "timestamp": "2026-08-30T14:56:50.194665+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "1afbd16cd407",
+    "config_path": "configs/baseline_thermal.yaml"
+  },
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T145759",
+    "timestamp": "2026-08-30T14:58:06.077795+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "1dd930752029",
+    "config_path": "configs/baseline_thermal.yaml"
+  },
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T152845",
+    "timestamp": "2026-08-30T15:28:52.348284+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "967b5a133f07",
+    "config_path": "configs/baseline_thermal.yaml"
+  },
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T181552",
+    "timestamp": "2026-08-30T18:15:59.408760+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "422aeac38307",
+    "config_path": "configs/baseline_thermal.yaml"
+  },
+  {
+    "experiment_id": "baseline_thermal__nogit__42__20260830T224158",
+    "timestamp": "2026-08-30T22:42:07.716846+00:00",
+    "config_name": "baseline_thermal",
+    "seed": 42,
+    "git_commit": "nogit",
+    "git_dirty": false,
+    "config_hash": "7720e2d1b544",
+    "config_path": "configs/baseline_thermal.yaml"
+  }
+]

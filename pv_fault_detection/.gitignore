@@ -1,0 +1,44 @@
+# Data (raw and processed - never committed)
+data/raw/
+data/processed/
+data/synthetic/
+
+# Checkpoints and logs (large, regeneratable)
+checkpoints/
+logs/
+
+# Results: only final headline results are committed (metrics.json, plots, tables)
+# Raw predictions and checkpoint files are excluded
+results/**/*.csv
+results/**/*.pt
+results/**/*.pth
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment secrets
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

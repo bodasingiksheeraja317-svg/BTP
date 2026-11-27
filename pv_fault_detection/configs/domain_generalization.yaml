@@ -1,0 +1,26 @@
+# configs/domain_generalization.yaml
+# Ablation matrix row 8: ERM vs CORAL vs Adversarial-DG vs domain-norm, LODO evaluation.
+# Best data mix from row 7 (determined after row 7 runs).
+# Run via CLI override for each DG method:
+#   python -m src.experiments.run --config configs/domain_generalization.yaml --override model.dg_method=none
+#   python -m src.experiments.run --config configs/domain_generalization.yaml --override model.dg_method=coral
+#   python -m src.experiments.run --config configs/domain_generalization.yaml --override model.dg_method=adversarial
+#   python -m src.experiments.run --config configs/domain_generalization.yaml --override model.dg_method=domain_norm
+# Answers RQ4; Level 6.
+#
+# IMPORTANT: protocol must be lodo when dg_method != none.
+# The config loader (src/common/config.py) REJECTS the combination
+# dg_method != none with protocol: random_split at load time.
+
+experiment_name: "domain_generalization"
+
+model:
+  modalities: [rgb, thermal, electrical]
+  fusion_type: "cross_attention"
+  dg_method: "none"  # override to: coral | adversarial | domain_norm
+
+evaluation:
+  protocol: "lodo"   # REQUIRED for DG experiments
+
+synthetic:
+  ratio: 0.0  # update to best from row 7 after that stage completes

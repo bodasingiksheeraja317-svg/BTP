@@ -1,0 +1,16 @@
+# configs/baseline_thermal.yaml
+# Ablation matrix row 2: Thermal-only baseline (in-domain, random split)
+# Research ladder Level 1/2 floor for RQ1/RQ2.
+
+experiment_name: "baseline_thermal"
+
+model:
+  modalities: [thermal]
+  fusion_type: "late"   # no fusion needed for single modality
+  dg_method: "none"
+
+evaluation:
+  protocol: "random_split"
+
+synthetic:
+  ratio: 0.0

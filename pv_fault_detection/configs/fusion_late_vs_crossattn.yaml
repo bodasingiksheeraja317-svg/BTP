@@ -1,0 +1,19 @@
+# configs/fusion_late_vs_crossattn.yaml
+# Ablation matrix row 6: Late fusion vs cross-attention comparison.
+# Fixed modality set (RGB + Thermal + Electrical), random split.
+# Run twice via CLI override:
+#   python -m src.experiments.run --config configs/fusion_late_vs_crossattn.yaml --override model.fusion_type=late
+#   python -m src.experiments.run --config configs/fusion_late_vs_crossattn.yaml --override model.fusion_type=cross_attention
+
+experiment_name: "fusion_late_vs_crossattn"
+
+model:
+  modalities: [rgb, thermal, electrical]
+  fusion_type: "cross_attention"  # override to "late" for the comparison run
+  dg_method: "none"
+
+evaluation:
+  protocol: "random_split"
+
+synthetic:
+  ratio: 0.0

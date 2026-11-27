@@ -1,0 +1,31 @@
+# src/data/label_maps/irsm.yaml
+# Label mapping: InfraredSolarModules (IRSM) native labels -> canonical fault taxonomy
+# Spec: Section 7.1 — 7 canonical classes
+# Human review required before first use: verify every mapping against the dataset paper.
+# Unmapped source classes are marked TO_VERIFY.
+#
+# InfraredSolarModules native class names (from Raptor Maps paper):
+#   bird-drop, dusty, electrical-damage, hot-spot, hot-spot-multi,
+#   offline-module, shadowed, vegetation, no-anomaly
+
+# Format: native_label_lowercase: canonical_label
+bird-drop: "Soiling"                     # bird droppings -> soiling/obstruction
+dusty: "Soiling"                         # dust -> soiling
+soiling: "Soiling"
+electrical-damage: "Electrical/Diode fault"
+diode: "Electrical/Diode fault"
+diode-multi: "Electrical/Diode fault"
+hot-spot: "Hotspot"
+hot-spot-multi: "Hotspot"               # multiple hotspots still hotspot class
+cell: "Hotspot"                         # single hot cell
+cell-multi: "Hotspot"                   # multiple hot cells
+offline-module: "Open/Short-circuit"    # offline = effectively open circuit
+shadowed: "Shading/Obstruction"
+shadowing: "Shading/Obstruction"
+vegetation: "Shading/Obstruction"
+cracking: "Structural (visual)"
+no-anomaly: "Healthy"
+
+# TO_VERIFY: Confirm these mappings against the IRSM paper's class definitions.
+# Particularly: "electrical-damage" -> "Electrical/Diode fault" vs "Structural (visual)"
+# depends on whether the damage is visible structural or functional electrical.

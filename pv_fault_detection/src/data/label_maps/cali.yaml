@@ -1,0 +1,21 @@
+# src/data/label_maps/cali.yaml
+# Label mapping: Alfaro-Mejia Cali thermal dataset -> canonical fault taxonomy
+# TO VERIFY: Populate these once the dataset structure is known after manual download.
+# All entries currently marked TO_VERIFY until dataset is examined.
+
+# Format: native_label_lowercase: canonical_label
+# Placeholder — update after MANUAL download and inspection of dataset structure.
+healthy: "Healthy"
+no-fault: "Healthy"
+normal: "Healthy"
+hotspot: "Hotspot"
+short-circuit: "Open/Short-circuit"
+open-circuit: "Open/Short-circuit"
+shading: "Shading/Obstruction"
+soiling: "Soiling"
+crack: "Structural (visual)"
+bypass-diode: "Electrical/Diode fault"
+
+# TO_VERIFY: These are placeholder mappings based on common thermal dataset conventions.
+# Actual native class names must be verified against the Alfaro-Mejia paper and
+# the dataset's actual directory/annotation structure after download.

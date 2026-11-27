@@ -1,0 +1,16 @@
+# configs/baseline_electrical.yaml
+# Ablation matrix row 3: Electrical-only baseline (in-domain, random split)
+# Research ladder Level 1/2 floor for RQ1/RQ2.
+
+experiment_name: "baseline_electrical"
+
+model:
+  modalities: [electrical]
+  fusion_type: "late"   # no fusion needed for single modality
+  dg_method: "none"
+
+evaluation:
+  protocol: "random_split"
+
+synthetic:
+  ratio: 0.0

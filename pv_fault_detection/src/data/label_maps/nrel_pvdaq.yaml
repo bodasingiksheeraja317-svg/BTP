@@ -1,0 +1,10 @@
+# src/data/label_maps/nrel_pvdaq.yaml
+# Label mapping: NREL PVDAQ -> canonical fault taxonomy
+# NREL PVDAQ is a healthy-dominant real operational dataset.
+# Used for: healthy-domain diversity, irradiance/temp normalization, realistic conditioning.
+
+healthy: "Healthy"
+normal: "Healthy"
+no-fault: "Healthy"
+# If NREL PVDAQ has any labeled fault events, add them here.
+# TO VERIFY: Check PVDAQ data export format for any fault annotations.

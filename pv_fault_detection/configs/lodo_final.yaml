@@ -1,0 +1,24 @@
+# configs/lodo_final.yaml
+# Ablation matrix row 9: In-domain vs LODO cross-site comparison.
+# Fixed best config from row 8 (best DG method), best data mix from row 7.
+# Run BOTH random_split AND lodo to get the generalization gap (RQ2).
+# This is the central paper claim.
+#
+# Run as:
+#   python -m src.experiments.run --config configs/lodo_final.yaml --override evaluation.protocol=random_split
+#   python -m src.experiments.run --config configs/lodo_final.yaml --override evaluation.protocol=lodo
+# Or use lodo_runner directly:
+#   python -m src.evaluation.lodo_runner --config configs/lodo_final.yaml
+
+experiment_name: "lodo_final"
+
+model:
+  modalities: [rgb, thermal, electrical]
+  fusion_type: "cross_attention"
+  dg_method: "none"   # update to best from row 8 after that stage completes
+
+evaluation:
+  protocol: "lodo"    # primary; also run random_split for gap comparison
+
+synthetic:
+  ratio: 0.0          # update to best from row 7 after that stage completes

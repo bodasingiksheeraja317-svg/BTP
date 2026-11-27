@@ -1,0 +1,27 @@
+# src/data/label_maps/own_site.yaml
+# Label mapping: Own-collected site data -> canonical fault taxonomy
+# The user supplies fault_label values in their labels.csv.
+# This file maps any non-canonical labels to canonical ones.
+# Update as needed based on your own labeling conventions.
+
+healthy: "Healthy"
+normal: "Healthy"
+no-fault: "Healthy"
+hotspot: "Hotspot"
+hot_spot: "Hotspot"
+short: "Open/Short-circuit"
+short-circuit: "Open/Short-circuit"
+open: "Open/Short-circuit"
+open-circuit: "Open/Short-circuit"
+shade: "Shading/Obstruction"
+shading: "Shading/Obstruction"
+obstruction: "Shading/Obstruction"
+soiling: "Soiling"
+dirt: "Soiling"
+dust: "Soiling"
+crack: "Structural (visual)"
+structural: "Structural (visual)"
+delamination: "Structural (visual)"
+bypass-diode: "Electrical/Diode fault"
+diode: "Electrical/Diode fault"
+electrical: "Electrical/Diode fault"

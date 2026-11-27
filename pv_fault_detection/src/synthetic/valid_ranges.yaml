@@ -1,0 +1,24 @@
+# src/synthetic/valid_ranges.yaml
+# Physical valid ranges for synthetic Si PV module curve validation.
+# Spec Section 11.3 — TO VERIFY against literature-typical Si-module specs.
+# Reject synthetic curves with values outside these ranges.
+
+si_module:
+  Voc:
+    min: 20.0   # V — ASSUMPTION: typical Si module Voc range
+    max: 50.0   # V — ASSUMPTION
+  Isc:
+    min: 1.0    # A — ASSUMPTION
+    max: 15.0   # A — ASSUMPTION
+  FF:
+    min: 0.50   # ASSUMPTION: degraded module lower bound
+    max: 0.85   # ASSUMPTION: high-efficiency upper bound
+  Pmp:
+    min: 10.0   # W — ASSUMPTION
+    max: 500.0  # W — ASSUMPTION
+  Rs:
+    min: 0.0    # Ohm
+    max: 10.0   # Ohm — ASSUMPTION
+  Rsh:
+    min: 1.0    # Ohm — ASSUMPTION
+    max: 10000.0 # Ohm — ASSUMPTION

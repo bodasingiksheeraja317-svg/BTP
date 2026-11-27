@@ -1,0 +1,19 @@
+# src/data/label_maps/elpv.yaml
+# Label mapping: ELPV dataset native labels -> canonical fault taxonomy
+# Note: ELPV is an EL (electroluminescence) sub-study ONLY.
+# These labels apply to EL imagery and are NOT part of the core field-system taxonomy.
+#
+# ELPV native labels (Deitsch et al. 2019):
+#   mono: monocrystalline (cell type, not fault)
+#   poly: polycrystalline (cell type, not fault)
+#   defective: defective cell (general)
+# Each sample has a probability (0.0-1.0) of being defective.
+
+# Format: native_label_lowercase: canonical_label
+defective: "Structural (visual)"       # EL defects map to structural visual class
+mono: "TO_VERIFY"                       # mono is a cell type not a fault -> TO_VERIFY
+poly: "TO_VERIFY"                       # poly is a cell type not a fault -> TO_VERIFY
+
+# TO_VERIFY: ELPV uses probability scores, not hard binary labels.
+# The adapter should threshold at probability > 0.5 for "defective" assignment.
+# Verify this threshold is appropriate before use.

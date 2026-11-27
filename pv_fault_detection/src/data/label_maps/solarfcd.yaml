@@ -1,0 +1,19 @@
+# src/data/label_maps/solarfcd.yaml
+# Label mapping: SolarFCD dataset -> canonical fault taxonomy
+# TO VERIFY: Populate once dataset is manually downloaded and structure examined.
+
+healthy: "Healthy"
+no-fault: "Healthy"
+hotspot: "Hotspot"
+short: "Open/Short-circuit"
+open: "Open/Short-circuit"
+shading: "Shading/Obstruction"
+shadow: "Shading/Obstruction"
+soiling: "Soiling"
+dirt: "Soiling"
+crack: "Structural (visual)"
+delamination: "Structural (visual)"
+bypass-diode-failure: "Electrical/Diode fault"
+diode: "Electrical/Diode fault"
+
+# TO_VERIFY: Verify all class names against SolarFCD documentation.

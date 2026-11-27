@@ -1,0 +1,16 @@
+# configs/multimodal_full.yaml
+# Ablation matrix row 5: Full trimodal model (RGB + Thermal + Electrical), random split.
+# Answers RQ1 in-domain half.
+
+experiment_name: "multimodal_full"
+
+model:
+  modalities: [rgb, thermal, electrical]
+  fusion_type: "cross_attention"
+  dg_method: "none"
+
+evaluation:
+  protocol: "random_split"
+
+synthetic:
+  ratio: 0.0

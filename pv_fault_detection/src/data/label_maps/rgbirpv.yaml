@@ -1,0 +1,16 @@
+# src/data/label_maps/rgbirpv.yaml
+# Label mapping: RGBIRPV dataset -> canonical fault taxonomy
+# TO VERIFY: Populate once dataset is downloaded and structure examined.
+# License also TO VERIFY.
+
+healthy: "Healthy"
+normal: "Healthy"
+hotspot: "Hotspot"
+short-circuit: "Open/Short-circuit"
+open-circuit: "Open/Short-circuit"
+shading: "Shading/Obstruction"
+soiling: "Soiling"
+crack: "Structural (visual)"
+diode-fault: "Electrical/Diode fault"
+
+# TO_VERIFY: Verify all class names against RGBIRPV paper and supplementary material.
